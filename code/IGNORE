@@ -1,0 +1,10 @@
+*~
+*.tmp
+a.out
+*.o
+*.exec
+*.mp4
+*.anim
+*.gif
+*.shfp.*
+*.dSYM

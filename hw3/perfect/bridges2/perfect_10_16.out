@@ -1,0 +1,3 @@
++ cd ..
++ mpirun -np 16 /jet/home/nolanb/372-nolanb/hw/hw3/perfect/perfect_mpi.exec 10000000
+16 8.516542

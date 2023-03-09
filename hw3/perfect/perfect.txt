@@ -1,0 +1,2 @@
+The bridges-2 data shows that as you double the amount of processes, the time for completion cuts in half, exponentially decreasing.
+The greatest perfect number found for n=5*10^7: 33550336 

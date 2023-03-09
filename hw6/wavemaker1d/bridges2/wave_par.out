@@ -1,0 +1,6 @@
++ cd ..
++ ./wavemaker1d_omp.exec 20000000 10000 1000 0.005 1000 1000 omp_out.anim
+wavemaker1d: nx=20000000 ny=10000 width=1000 k=0.005 nstep=1000 wstep=1000 nthreads=4
+wavemaker1d: creating ANIM file omp_out.anim with 2 frames, 80000100 bytes.
+0%....................25%......................50%......................75%.....................100%
+wavemaker1d: finished.  Time = 20.718448

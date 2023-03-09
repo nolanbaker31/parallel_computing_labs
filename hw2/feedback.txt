@@ -1,0 +1,12 @@
+Problem 1
+* -2: g is sizeof(int*)
+* Total: 14/16
+
+Problem 2
+* Total: 24/24
+
+Problem 3
+* Total: 30/30
+
+Final
+* Total: 68/70

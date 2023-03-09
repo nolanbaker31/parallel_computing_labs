@@ -1,0 +1,11 @@
+(1) The code cannot deadlock.
+Every process except 0 sends to 0 and 0 receives every process.
+
+(2) The code may or may deadlock.
+Since an MPI_Send may complete even without an MPI_Recv, sending the value to a buffer, an MPI_Recv may receive the buffered value after the thread sends an MPI_Send. This may deadlock, though, as it is not guaranteed the MPI_Send will not block.
+
+(3) This code must deadlock.
+Since both threads start with an MPI_Recv, they with both block until the opossing thread uses MPI_Send.
+
+(4) This code may or may not deadlock.
+Since there is no guarantee that the thread running MPI_Recv will be the same thread that is running MPI_Send, this may deadlock. Since sometimes MPI_Send can send to a buffer, or they run in a particular order, the code may not deadlock.

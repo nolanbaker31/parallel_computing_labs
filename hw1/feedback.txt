@@ -1,0 +1,16 @@
+Problem 1
+* -2: commited greet.exec
+* Total: 12/14
+
+Problem 2
+* -2: make test does not depend on greet.exec
+* Total: 14/16
+
+Problem 3
+* Total: 8/8
+
+Problem 4
+* Total: 14/14
+
+Final:
+* Total: 48/52

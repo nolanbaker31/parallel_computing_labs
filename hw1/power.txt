@@ -1,0 +1,4 @@
+New frequency (GHz): 1
+Explanation:
+If you have 8 core, each running at 1 Ghz (.5 of 2), then
+8core*(.5)^3*120w = 120W, the same power usage as before

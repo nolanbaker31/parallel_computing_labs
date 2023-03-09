@@ -1,0 +1,13 @@
+Problem 1
+* -1: ghost cells shouldn't be set to m in setup
+* -3: Output differs according to make test
+* Total: 71/75
+
+Problem 2
+* -2: output should not be ints
+* -2: Time not printed
+* -6: bridges output missing
+* Total: 15/25
+
+Final
+86/100

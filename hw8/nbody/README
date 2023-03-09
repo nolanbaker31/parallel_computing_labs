@@ -1,0 +1,37 @@
+Description:
+I decided to use CUDA and OpenMP to parallelize the nbody problem. While initially I wanted to use MPI, as this can take advantage of CPU cores on bridges, while OpenMP could take advantage of GPU nodes, MPI proved too complicated for me to use on this problem, as I was not able to figure out an effective strategy.
+
+I first used OpenMP to improve host code on the setup function. One way of doing this was to wrap 2 sections of variable initilization and memory allocation in an "#pragma omp section". Since these sections could be done asynchronously from one another, this would slightly boost performance. I also utilized "#pragma omp parallel for" loops for the setting of arrays to slightly boost performance further. A nowait clause was used on the first for loop, as this could be done asynchronously from the second for loop. 
+
+I wanted to use OpenMP for the write_frame function as well, but from my testing this seemed to somehow decrease performance, so I decided to remove it. I had implemented it by changing the way the for loop ran so it no longer needed the "j" variable, as this would not fit the OpenMP specification.
+
+In this problem, the CUDA kernel for the "update" function does the majority of the work. I used a similar strategy to how I completed this problem using pthreads, by simply having each thread work as the "i" variable. While I wanted to implement the code so that each thread in a block would act as the "j" variable, and each block does the work of the "i" variable, this seemed difficult to implement, as it would require exchanging of information for when nbodies is greater than the maximum number of threads in a block, 1024.
+
+Another issue I came across was allocating variables to the device. Despite most of these variables being constant numbers that would not have to be updated, I had to use pointers to device variables as these variables are set from the external files. 
+
+Input Data:
+Input data was from external files, which includes many variables, including:
+x_min, x_max, y_min, y_max
+nx, nbodies, delta_t, nstep
+wstep, ncolors, colors, and bodies
+
+All of this data works to draw each frame of the image as well as calculate each bodies trajectory. The only other input data was the amount of threads to use for OpenMP, which I chose to be 4. Since OpenMP did not do an abudant amount of work, I think this was more then enough.
+
+Instructions:
+To run this program, simply use the included make file. To run galaxy10, for example, you would simply run "make galaxy10_par.anim"
+
+To run on bridges, use the "bridges2" directory and use the command "sbatch galaxy10_cuda" for galaxy10.c or "sbatch galaxy_cuda" for galaxy.c
+To run the sequential version of galaxy, use "sbatch galaxy_seq"
+
+Results:
+For galaxy10:
+Sequential time(s): 6334
+Cuda time(s): 88.938
+Efficiency: 71.218
+
+Galaxy(1):
+Sequential time(s): 58.593
+Cuda time(s): 9.246
+Efficiency: 6.337
+
+Overall, I am happy with these results. Obviously, the larger the nbodies, the more that parallelism helps with efficiency. 

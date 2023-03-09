@@ -1,0 +1,7 @@
++ cd ..
++ gcc -I/ocean/projects/see200002p/shared/include -I../../../../372-2022F/code/include -std=c18 -pedantic -Wall -L/ocean/projects/see200002p/shared/lib -L../../../../372-2022F/code/lib -O3 -Wno-missing-braces -o galaxy_seq.exec nbody.c galaxy.c -lanim -lm
++ ./galaxy_seq.exec galaxy_seq.anim
+nbody: nbodies=1001 nx=1000 ny=1000 nstep=10000 wstep=5
+nbody: creating ANIM file galaxy_seq.anim with 2001 frames, 8020128 bytes.
+0%....................25%......................50%......................75%.....................100%
+nbody: finished.  Time = 58.593895

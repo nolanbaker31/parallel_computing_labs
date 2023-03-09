@@ -1,0 +1,5 @@
++ cd ..
++ srun --unbuffered -n 1 ./mandelbrot_cuda.exec 800 400 mb4_seq.anim
+mandelbrot: creating ANIM file mb4_seq.anim with 400 frames, 800x800 pixels, 256000100 bytes.
+0%....................25%......................50%......................75%.....................100%
+mandelbrot: finished.  Time = 2.546827

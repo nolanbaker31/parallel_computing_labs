@@ -1,0 +1,8 @@
++ cd ..
++ nvcc -I/ocean/projects/see200002p/shared/include -I../../../../372-2022F/code/include -L/ocean/projects/see200002p/shared/lib -L../../../../372-2022F/code/lib --compiler-options -Wno-missing-braces --compiler-options -fopenmp -fmad false -o galaxy_par.exec nbody_par.cu galaxy.c -lanim -lm
++ OMP_NUM_THREADS=4
++ srun --unbuffered -n 1 --gres=gpu:1 ./galaxy_par.exec 4 galaxy_par.anim
+nbody: nbodies=1001 nx=1000 ny=1000 nstep=10000 wstep=5
+nbody: creating ANIM file galaxy_par.anim with 2001 frames, 8020128 bytes.
+0%....................25%......................50%......................75%.....................100%
+nbody: finished.  Time = 9.245870

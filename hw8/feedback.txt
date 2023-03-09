@@ -1,0 +1,4 @@
+	- Not all variables need to be copied to GPU
+	- Great Work
+
+99/100
